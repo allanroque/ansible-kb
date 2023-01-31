@@ -45,6 +45,8 @@ ansible --version
 ansible-navigator --version
 ```
 
+## Execution Environment
+
 1. realizar login no registry da redhat
 ```
 podman login registry.redhat.io
@@ -59,3 +61,5 @@ podman pull registry.redhat.io/ansible-automation-platform-22/ee-supported-rhel8
 ```
 ansible-navigator images
 ```
+>[!NOTE]
+>Por padrão o ansible navigator busca a ultima versão do EE valida, por exemplo: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8:latest
