@@ -1,0 +1,124 @@
+- hosts: all
+  vars:
+    user: joe
+    home: /home/joe
+
+- hosts: all
+  vars_files:
+    - vars/users.yml
+
+user: joe
+home: /home/joe
+
+vars:
+  user: joe
+
+tasks:
+  # This line will read: Creates the user joe
+  - name: Creates the user {{ user }}
+    user:
+      # This line will create the user named Joe
+      name: "{{ user }}"
+
+####
+Definir var no intentario
+
+[servers]
+demo.example.com  ansible_user=joe
+
+[servers]
+demo1.example.com
+demo2.example.com
+
+[servers:vars]
+user=joe
+
+---
+
+[servers1]
+demo1.example.com
+demo2.example.com
+
+[servers2]
+demo3.example.com
+demo4.example.com
+
+[servers:children]
+servers1
+servers2
+
+[servers:vars]
+user=joe
+
+
+##########
+Definir var no diretorio
+[datacenter1]
+demo1.example.com
+demo2.example.com
+
+[datacenter2]
+demo3.example.com
+demo4.example.com
+
+[datacenters:children]
+datacenter1
+datacenter2
+
+/group_vars/datacenters
+package: httpd
+
+group_vars/datacenter1
+package: httpd
+
+group_vars/datacenter2
+package: apache
+
+host_vars/demo1.example.com
+package: httpd
+
+project
+├── ansible.cfg
+├── group_vars
+│   ├── datacenters
+│   ├── datacenters1
+│   └── datacenters2
+├── host_vars
+│   ├── demo1.example.com
+│   ├── demo2.example.com
+│   ├── demo3.example.com
+│   └── demo4.example.com
+├── inventory
+└── playbook.yml
+
+
+###########3
+Overriding Variables from the Command Line
+
+ansible-navigator run main.yml -e "package=apache"
+
+###########################
+# Using Dictionaries as Variables
+users:
+  bjones:
+    first_name: Bob
+    last_name: Jones
+    home_dir: /users/bjones
+  acook:
+    first_name: Anne
+    last_name: Cook
+    home_dir: /users/acook
+
+# Returns 'Bob'
+users.bjones.first_name
+
+# Returns '/users/acook'
+users.acook.home_dir
+
+ou
+
+# Returns 'Bob'
+users['bjones']['first_name']
+
+# Returns '/users/acook'
+users['acook']['home_dir']	

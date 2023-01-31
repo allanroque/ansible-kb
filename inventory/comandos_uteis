@@ -1,0 +1,10 @@
+# listar os devices dentros do arquivos inventory
+ansible-navigator inventory -i inventory -m stdout --list
+
+# variacoes com --yaml --graph
+ansible-navigator inventory -i inventory -m stdout --list --yaml
+ansible-navigator inventory -i inventory -m stdout --graph
+
+# podemos aplicar filtros
+ansible-navigator inventory -i inventory -m stdout --graph ungrouped
+

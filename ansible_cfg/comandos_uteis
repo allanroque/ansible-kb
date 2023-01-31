@@ -1,0 +1,19 @@
+#as configuracoes podem ser verificadas com comando ansible-navigator config.
+
+ansible-navigator config
+Name                        Default Source                            Current
+...output omitted...
+44│Default ask pass            True    default                           False
+45│Default ask vault pass      True    default                           False
+46│Default become              False   /home/student/project/ansible.cfg True
+47│Default become ask pass     False   /home/student/project/ansible.cfg True
+ ...output omitted...
+50│Default become method       False   /home/student/project/ansible.cfg sudo
+51│Default become user         False   /home/student/project/ansible.cfg root
+
+# para gerar um arquivo de exemplo
+ansible-config init --disabled > ansible.cfg
+
+ansible-navigator config init --mode stdout
+ansible-navigator config init  --disabled --mode stdout
+

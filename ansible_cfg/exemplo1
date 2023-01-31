@@ -1,0 +1,12 @@
+[defaults]	# configuracoes padroes do ansible
+inventory = ./inventory # arquivos de inventario
+remote_user = user # usuario padrao de acesso
+ask_pass = false # solicitacao de password
+
+[privilege_escalation]   #configuracao de acesso e escalonamento
+become = true # ativar ou desativar o escalonamento
+become_method = sudo # metodo su ou sudo
+become_user = root # usuario do escalonamento
+become_ask_pass = false # solicitacao de password para o escalonamento
+
+

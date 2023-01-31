@@ -1,0 +1,39 @@
+############################
+# CRIANDO NOVO REPOSITORIO #
+############################
+
+# criar um arquivo de exemplo
+echo "# ansible-kb" >> README.md
+
+# Iniciar o repositorio
+git init
+
+# Adicionar o arquivo
+git add README.md
+
+# criar um commit com uma mensagem
+git commit -m "first commit"
+
+# selecionar a branch para commit
+git branch -M main
+
+# informar o repositorio
+git remote add origin git@github.com:allanroque/ansible-kb.git
+
+# realizar o push
+git push -u origin main
+
+
+##################################
+# TRABALHANDO COM REPO EXISTENTE #
+##################################
+git remote add origin git@github.com:allanroque/ansible-kb.git
+git branch -M main
+git push -u origin main
+
+##################
+# COMANDOS UTEIS #
+##################
+git config --global init.defaultBranch main
+git config --global user.name "Allan Roque"
+git config --global user.email allanrafaelroque@gmail.com

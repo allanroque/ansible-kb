@@ -1,0 +1,38 @@
+# listar as configuracoes do navigator
+ansible-navigator settings
+
+# as configuracoes basicas podem ser feitas via linha de comando 
+ansible-navigator settings --help
+
+--eei  --execution-environment-image
+--pp   --pull-policy
+--lf   --log-file 
+--ll   --log-level
+-m     --mode
+
+exemplo:
+ansible-navigator settings --eei registry.redhat.io/ansible-automation-platform-22/ee-supported-rhel8:latest --pp missing
+
+# o arquivo padrão do ansible-navigator pode ser configurado em vários lugares, por padrão fica no home do usuário com informacoes padroes
+/home/student/.ansible-navigator.yml
+
+
+# podemos gerar um arquivo ansible-navigator.yml com o comando:
+ansible-navigator settings --sample
+
+#########################
+# ansible-navigator run #
+# #######################
+ansible-navigator run -m stdout webserver.yml --syntax-check
+
+ansible-navigator run -m stdout webserver.yml --check
+
+-v ou -vvv
+
+######################
+# Escrever playbooks #
+# ####################
+ansible-navigator doc -l -m stdout
+ansible-navigator doc dnf -m stdout
+ansible-navigator doc
+

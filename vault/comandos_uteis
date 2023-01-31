@@ -1,0 +1,23 @@
+ansible-vault create secret.yml
+
+ansible-vault create --vault-password-file=vault-pass secret.yml
+
+ansible-vault view secret1.yml
+
+ansible-vault edit secret.yml
+
+# para arquivos existentes
+ansible-vault encrypt secret1.yml secret2.yml
+
+ansible-vault decrypt secret1.yml --output=secret1-decrypted.yml
+
+#mudar password
+
+#Playbooks and Ansible Vault
+ansible-navigator run -m stdout test-secret.yml
+
+ansible-navigator run -m stdout --playbook-artifact-enable false  site.yml --vault-id @prompt
+
+ansible-navigator run -m stdout site.yml --vault-password-file=vault-pw-file
+
+
